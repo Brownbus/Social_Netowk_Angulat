@@ -13,8 +13,8 @@ export class LoginComponent implements OnInit {
   constructor(private authSvc: AuthenticationService) { }
   login({username, password}):void{
   if(username && password){
-    this.authSvc.authenticate(username, password).subscribe(({token}:any):void=>{
-      localStorage.setItem('authToken', token)
+    this.authSvc.authenticate(username, password).subscribe((resp):void=>{
+      console.log(resp)
     })
   }else{
     alert("Please Fill Out Both Fields")

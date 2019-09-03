@@ -6,13 +6,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AuthenticationService {
   url: string = 'http://localhost:3050/auth'
+  options: any = { headers: { "content-type": "application/json" } }
   constructor(private http: HttpClient) { }
-  authenticate(username, password){
-    return this.http.get(this.url, {
-        headers: {"content-type" : "application/json"},
-        observe: "body",
-        params: {username, password}
-      }
+  authenticate(username, password) {
+    return this.http.post(
+      this.url,
+      { username, password },
+      this.options
     )
   }
 }
