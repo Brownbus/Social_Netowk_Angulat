@@ -1,0 +1,5 @@
+<form #creds="ngForm" (ngSubmit)="login(creds.value)" validate>
+    <input type="text" name="username" ngModel required maxlength=16>
+    <input type="password" name="password" ngModel required maxlength=16>
+    <input type="submit" value="Log in">
+</form>
